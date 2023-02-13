@@ -33,7 +33,7 @@ async fn main() -> Result<(), anyhow::Error> {
     let wordlist_file = File::open(args.path_to_wordlist)?;
 
     let reader = BufReader::new(&wordlist_file);
-    let http_timeout = Duration::from_secs(5);
+    let http_timeout = Duration::from_secs(10);
     let http_client = Client::builder().timeout(http_timeout).build()?;
 
     let mut handles = vec![];
