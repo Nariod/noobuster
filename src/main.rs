@@ -1,6 +1,4 @@
-mod error;
 use clap::Parser;
-pub use error::Error;
 use reqwest::Client;
 use std::{
     fs::File,
