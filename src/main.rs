@@ -39,7 +39,11 @@ async fn main() -> Result<(), anyhow::Error> {
     let http_responses: Vec<&str> = http_responses.split(',').collect();
     let http_responses: Vec<u16> = http_responses
         .iter()
-        .map(|x| x.to_string().parse::<u16>().expect("Inputs are not valid HTTP codes. Please check your arguments."))
+        .map(|x| {
+            x.to_string()
+                .parse::<u16>()
+                .expect("Inputs are not valid HTTP codes. Please check your arguments.")
+        })
         .collect();
 
     let reader = BufReader::new(&wordlist_file);
